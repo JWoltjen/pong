@@ -20,6 +20,10 @@ export default class Paddle {
         this.position = 50
     }
 
+    rect() {
+        return this.paddleElem.getBoundingClientRect(); 
+    }
+
     update(delta, ballHeight) {
         this.position += SPEED * delta * (ballHeight - this.position)
     }
