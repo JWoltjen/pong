@@ -1,4 +1,4 @@
-
+const SPEED = .02
 
 export default class Paddle {
     constructor(paddleElem){
@@ -7,10 +7,15 @@ export default class Paddle {
 
     get position() {
         return parseFloat(
-            getComputedStyle(this.paddleElem).getPropertValue("--position"))
+            getComputedStyle(this.paddleElem).getPropertyValue("--position")
+        )
     }
 
     set position(value){
         this.paddleElem.style.setProperty("--position", value)
+    }
+
+    update(delta, ballHeight) {
+        this.position += SPEED * delta * (ballHeight - this.position)
     }
 }
