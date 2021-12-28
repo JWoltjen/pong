@@ -50,9 +50,9 @@ export default class Ball {
             this.direction.y *= -1
         }
 
-        if (rect.right >= window.innerWidth || rect.left <= 0){
-            this.direction.x *= -1
-        }
+        // if (rect.right >= window.innerWidth || rect.left <= 0){
+        //     this.direction.x *= -1
+        // }
     }
 }
 
