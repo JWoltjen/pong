@@ -4,7 +4,11 @@ a simple pong clone done in vanilla js.
 
 ## What are getters and setters?
 
-Getters and setters are called accessor properties. They were introduced to JS in 2009 (ES5). They execute on getting and setting values. They are used by both the Ball and Paddle class to get and set their respective positions each time the script updates. The position of the Ball and paddle objects is originally set in Styles.css. Then the getter functions run parseFloat(getComputedStyle(this.ballElem).getPropertyValue("--x")) to change the calculated CSS value into a float value that can be used by JS to assign a value to the position of the elmement. Because the paddles can only go up or down, they only have getters and setters for the y axis, but the ball needs getters and setters for both the y and x axis to calculate movement across the screen. 
+Getters and setters are called accessor properties. They were introduced to JS in 2009 (ES5). They execute on getting and setting values. They are used by both the Ball and Paddle class to get and set their respective positions each time the script updates. The position of the Ball and paddle objects is originally set in Styles.css. Then the getter functions run:
+
+         parseFloat(getComputedStyle(this.ballElem).getPropertyValue("--x"))
+
+to change the calculated CSS value into a float value that can be used by JS to assign a value to the position of the elmement. Because the paddles can only go up or down, they only have getters and setters for the y axis, but the ball needs getters and setters for both the y and x axis to calculate movement across the screen. 
 
 ## How does the computer paddle follow the ball? 
 
