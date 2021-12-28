@@ -25,4 +25,27 @@ This is then called in scripts JS inside the update loop of scripts, such that e
 
 ## How does the game keep track of time? 
 
+The key is the window.requestAnimationFrame, which takes in the function update() as its parameter: 
+
+       window.requestAnimationFrame(update)
+       
+ The update function itself aims to determine how many frames have passed since the last time the window.requestAnimationFrame(update) function ran. If it's the first time the function has run, then lastTime is assigned to time, and the function calls itself again, creating a loop. The loop is broken if a lose condition is reached. Otherwise, if it is not the first time the function has run, it will find the delta by taking: const delta = time - lastTime. 
+ 
+The beauty of this function is that no matter how much time it takes for a computer to update the screen, the other moving objects can calibrate their movement based on whatever the value of delta is. 
+ 
+    let lastTime 
+    function update(time) {
+    if (lastTime != null){
+    const delta = time - lastTime
+    ball.update(delta, [playerPaddle.rect(), computerPaddle.rect()])
+    computerPaddle.update(delta, ball.y)
+
+        if(isLose()){
+           handleLose()
+        }
+    }
+    lastTime = time
+    window.requestAnimationFrame(update)
+}
+
 ## How does the game handle a lose condition? 
