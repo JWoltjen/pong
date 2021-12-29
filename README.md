@@ -46,6 +46,12 @@ The beauty of this function is that no matter how much time it takes for a compu
     }
     lastTime = time
     window.requestAnimationFrame(update)
-}
+         }
+
+## How does the ball update its movement? 
+
 
 ## How does the game handle a lose condition? 
+
+You guessed it, it must be part of the update function--meaning that the program checks if the game is lost with every update. The lose condition in pong is if the ball passes the paddle and gets to the edge of the respective player's screen. First, it declares rect, and sets it to the ball's rect() prototype method. The isLose() method simply returns whether rect.right or rect.left is out of bounds of the screen's innerwidth value or less than zero. 
+.rect() is an important prototype method for games, because it delivers positional value, x,y, height, width relative to the window the element is being displayed in. 
