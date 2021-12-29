@@ -68,6 +68,12 @@ Ball.reset creates a direction for the ball object x, and while the direction is
 
 Update is a method that runs each time the game updates, it also considers the parameter of paddleRects (to determine if a collision has occurred)). It changes the x and y values of the ball by adding this.direction.x and this.direction.y as well as this.velocity per each delta update of time.  
 
+        update(delta, paddleRects){
+        this.x += this.direction.x * this.velocity * delta
+        this.y += this.direction.y * this.velocity * delta
+        const rect = this.rect()
+        this.velocity += VELOCITY_INCREASE * delta
+
 
 ## How does the game handle a lose condition? 
 
